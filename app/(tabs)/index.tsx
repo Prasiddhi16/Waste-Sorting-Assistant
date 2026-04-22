@@ -1,8 +1,26 @@
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { useState } from 'react';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function App() {
+  const [query, setQuery] = useState("");
+
+  const handleSearch = async () => {
+    try {
+     const response = await fetch("http://192.168.1.68:8000/classify", 
+ {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: query }),
+      });
+      const data = await response.json();
+      console.log("Backend response:", data);  
+      Alert.alert("Result", `Category: ${data.category}`);
+    } catch (error) {
+      Alert.alert("Error", "Could not connect to backend");
+    }
+  };
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -35,11 +53,14 @@ export default function App() {
         <TextInput
           style={styles.searchInput}
           placeholder="Type or speak item name..."
+          value={query}                 // connect to state
+          onChangeText={setQuery}       // update state when typing
         />
-        <TouchableOpacity style={styles.searchIcon}>
+        <TouchableOpacity style={styles.searchIcon} onPress={handleSearch}>
           <Ionicons name="search" size={24} color="#fff" />
         </TouchableOpacity>
       </View>
+
     </View>
   );
 }
