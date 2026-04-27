@@ -83,21 +83,41 @@ export default function App() {
           <Ionicons name="search" size={24} color="#fff" />
         </TouchableOpacity>
       </View>
+      <View style={styles.actionRow}>
+
+  <TouchableOpacity style={[styles.actionCard, { backgroundColor: '#E8F0FE' }]}>
+    <Ionicons name="sync" size={24} color="#2563EB" />
+    <Text style={[styles.actionText, { color: '#2563EB' }]}>Recycle</Text>
+  </TouchableOpacity>
+
+  <TouchableOpacity style={[styles.actionCard, { backgroundColor: '#E9FBEA' }]}>
+    <Ionicons name="leaf" size={24} color="#16A34A" />
+    <Text style={[styles.actionText, { color: '#16A34A' }]}>Compost</Text>
+  </TouchableOpacity>
+
+  <TouchableOpacity style={[styles.actionCard, { backgroundColor: '#FEECEC' }]}>
+    <Ionicons name="trash" size={24} color="#DC2626" />
+    <Text style={[styles.actionText, { color: '#DC2626' }]}>Landfill</Text>
+  </TouchableOpacity>
+
+  <TouchableOpacity style={[styles.actionCard, { backgroundColor: '#FFF7E6' }]}>
+    <Ionicons name="flame" size={24} color="#F59E0B" />
+    <Text style={[styles.actionText, { color: '#F59E0B' }]}>Hazardous</Text>
+  </TouchableOpacity>
+
+</View>
+
       {showCamera && (
         <CameraView
           style={StyleSheet.absoluteFillObject} 
-          ref={cameraRef}
-          
-        >
+          ref={cameraRef}>
           <TouchableOpacity onPress={capturePhoto}
-             style={styles.captureOuter}
->
-  <View style={styles.captureInner} />
-</TouchableOpacity>
+             style={styles.captureOuter}>
+            <View style={styles.captureInner} />
+          </TouchableOpacity>
           <TouchableOpacity
             onPress={() => setShowCamera(false)}
-            style={styles.closeButton}
-          >
+            style={styles.closeButton}>
             <Text style={{ color: 'white', fontSize: 18 }}>x</Text>
           </TouchableOpacity>
         </CameraView>
@@ -121,7 +141,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
-    marginBottom: 60,
+    marginBottom: 30,
   },
   scanText: { textAlign: 'center', fontSize: 16, color: '#555', marginBottom: 30 },
   searchBar: {
@@ -131,6 +151,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     alignItems: 'center',
     elevation: 2,
+     marginBottom: 10,
   },
   searchInput: { flex: 1, fontSize: 16, paddingVertical: 10 },
   searchIcon: {
@@ -163,4 +184,25 @@ closeButton: {
     top: 20,
     right: 20,
   },
+  actionRow: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  width: '100%',
+  marginTop: 20,
+  paddingHorizontal: 5,
+},
+
+actionCard: {
+  width: 75,
+  height: 50,
+  borderRadius: 11,
+  justifyContent: 'center',
+  alignItems: 'center',
+  marginBottom:30,
+},
+actionText: {
+  fontSize: 10,
+  fontWeight: '600',
+  marginTop: 5,
+},
 });
