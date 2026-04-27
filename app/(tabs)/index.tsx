@@ -1,10 +1,15 @@
 import { Ionicons } from '@expo/vector-icons';
+import { CameraView, useCameraPermissions } from 'expo-camera';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function App() {
   const [query, setQuery] = useState("");
+  const [permission, requestPermission] = useCameraPermissions();
+  const [showCamera, setShowCamera] = useState(false);
+  const cameraRef = useRef<any>(null);
+ 
 
   const handleSearch = async () => {
     try {
@@ -19,6 +24,24 @@ export default function App() {
       Alert.alert("Result", `Category: ${data.category}`);
     } catch (error) {
       Alert.alert("Error", "Could not connect to backend");
+    }
+  };
+   const handleScan = () => {
+  if (!permission) return;
+
+  if (!permission.granted) {
+    requestPermission();
+    return;
+  }
+
+  setShowCamera(true);
+};
+   const capturePhoto = async () => {
+    if (cameraRef.current) {
+      const photo = await cameraRef.current.takePictureAsync();
+      setShowCamera(false);
+      Alert.alert("Captured", `Photo saved at: ${photo.uri}`);
+      // Later: send photo.uri to backend for identification
     }
   };
   return (
@@ -43,7 +66,7 @@ export default function App() {
       </LinearGradient>
 
       {/* Scan Button */}
-      <TouchableOpacity style={styles.scanButton}>
+      <TouchableOpacity style={styles.scanButton} onPress={handleScan}>
         <Ionicons name="camera" size={40} color="#fff" />
       </TouchableOpacity>
       <Text style={styles.scanText}>Tap to scan waste item</Text>
@@ -60,7 +83,25 @@ export default function App() {
           <Ionicons name="search" size={24} color="#fff" />
         </TouchableOpacity>
       </View>
-
+      {showCamera && (
+        <CameraView
+          style={StyleSheet.absoluteFillObject} 
+          ref={cameraRef}
+          
+        >
+          <TouchableOpacity onPress={capturePhoto}
+             style={styles.captureOuter}
+>
+  <View style={styles.captureInner} />
+</TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => setShowCamera(false)}
+            style={styles.closeButton}
+          >
+            <Text style={{ color: 'white', fontSize: 18 }}>x</Text>
+          </TouchableOpacity>
+        </CameraView>
+      )}
     </View>
   );
 }
@@ -97,5 +138,29 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 5,
     marginLeft: 10,
+  },
+  captureOuter: {
+  position: 'absolute',
+  bottom: 40,
+  alignSelf: 'center',
+  width: 80,
+  height: 80,
+  borderRadius: 40,
+  borderWidth: 4,
+  borderColor: 'rgba(255,255,255,0.8)', // transparent white ring
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+
+captureInner: {
+  width: 55,
+  height: 55,
+  borderRadius: 30,
+  backgroundColor: 'white',
+},
+closeButton: {
+    position: 'absolute',
+    top: 20,
+    right: 20,
   },
 });
