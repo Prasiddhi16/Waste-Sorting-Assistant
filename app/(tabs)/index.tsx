@@ -13,7 +13,7 @@ export default function App() {
 
   const handleSearch = async () => {
     try {
-     const response = await fetch("http://192.168.1.68:8000/classify", 
+     const response = await fetch("https://ravine-sapling-glare.ngrok-free.dev/classify", 
  {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -37,13 +37,50 @@ export default function App() {
   setShowCamera(true);
 };
    const capturePhoto = async () => {
-    if (cameraRef.current) {
-      const photo = await cameraRef.current.takePictureAsync();
-      setShowCamera(false);
-      Alert.alert("Captured", `Photo saved at: ${photo.uri}`);
-      // Later: send photo.uri to backend for identification
+  if (!cameraRef.current) return;
+
+  try {
+    const photo = await cameraRef.current.takePictureAsync({
+      quality: 0.7,
+      base64: false,
+    });
+
+    setShowCamera(false);
+
+    const formData = new FormData();
+
+    formData.append("file", {
+      uri: photo.uri,
+      name: "waste.jpg",
+      type: "image/jpeg",
+    } as any);
+
+    console.log("Sending image:", photo.uri);
+
+    const response = await fetch("https://ravine-sapling-glare.ngrok-free.dev/classify", {
+      method: "POST",
+      body: formData,
+    });
+
+    const raw = await response.text();
+    console.log("RAW RESPONSE:", raw);
+
+    if (!response.ok) {
+      throw new Error(raw);
     }
-  };
+
+    const data = JSON.parse(raw);
+
+    Alert.alert(
+      "Result",
+      `Category: ${data.category}\nConfidence: ${(data.confidence * 100).toFixed(1)}%`
+    );
+
+  } catch (error: any) {
+  console.log("FULL ERROR:", error);
+  Alert.alert("Error", error.message || JSON.stringify(error));
+}
+};
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -101,7 +138,7 @@ export default function App() {
   </TouchableOpacity>
 
   <TouchableOpacity style={[styles.actionCard, { backgroundColor: '#FFF7E6' }]}>
-    <Ionicons name="flame" size={24} color="#F59E0B" />
+    <Ionicons name="flame" size={24} color="#f5320b" />
     <Text style={[styles.actionText, { color: '#F59E0B' }]}>Hazardous</Text>
   </TouchableOpacity>
 
