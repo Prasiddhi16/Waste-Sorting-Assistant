@@ -25,18 +25,9 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="gamification"
         options={{
-          title: "Gamification",
+          title: "Summary",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="trophy" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="community"
-        options={{
-          title: "Community",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="people" color={color} size={size} />
           ),
         }}
       />
