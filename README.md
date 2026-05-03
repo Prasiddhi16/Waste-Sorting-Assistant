@@ -93,23 +93,23 @@ https://github.com/user-attachments/assets/a74cf92a-518a-4bbb-a213-85d9a947e379
 
 Video Demo
 
-<img width="720" height="1520" alt="WhatsApp Image 2026-05-03 at 11 41 37 PM" src="https://github.com/user-attachments/assets/5d6bd702-323a-4cdc-8bde-716e01b1b9a3" />
-Home Page
+<img width="720" height="740" alt="WhatsApp Image 2026-05-03 at 11 41 37 PM" src="https://github.com/user-attachments/assets/5d6bd702-323a-4cdc-8bde-716e01b1b9a3" />
+**Home Page**
 
-<img width="720" height="1520" alt="WhatsApp Image 2026-05-03 at 11 41 38 PM" src="https://github.com/user-attachments/assets/a73c95d7-2842-40d8-aa27-e269f9017607" />
-Results Page
+<img width="720" height="740" alt="WhatsApp Image 2026-05-03 at 11 41 38 PM" src="https://github.com/user-attachments/assets/a73c95d7-2842-40d8-aa27-e269f9017607" />
+**Results Page**
 
-<img width="720" height="1520" alt="WhatsApp Image 2026-05-03 at 11 41 39 PM (1)" src="https://github.com/user-attachments/assets/fc6be8d1-87fa-4020-b3c9-de6060541603" />
+<img width="720" height="740" alt="WhatsApp Image 2026-05-03 at 11 41 39 PM (1)" src="https://github.com/user-attachments/assets/fc6be8d1-87fa-4020-b3c9-de6060541603" />
 Scan Result
 
-<img width="720" height="1520" alt="WhatsApp Image 2026-05-03 at 11 41 39 PM (2)" src="https://github.com/user-attachments/assets/e93854cf-01c4-4ed4-94ce-12d8599cb9f2" />
-Recommendations
+<img width="720" height="740" alt="WhatsApp Image 2026-05-03 at 11 41 39 PM (2)" src="https://github.com/user-attachments/assets/e93854cf-01c4-4ed4-94ce-12d8599cb9f2" />
+**Recommendations**
 
-<img width="720" height="1520" alt="WhatsApp Image 2026-05-03 at 11 41 39 PM" src="https://github.com/user-attachments/assets/68fc560c-f036-464a-9cfc-a86ec6a27314" />
+<img width="720" height="740" alt="WhatsApp Image 2026-05-03 at 11 41 39 PM" src="https://github.com/user-attachments/assets/68fc560c-f036-464a-9cfc-a86ec6a27314" />
 
 
-<img width="720" height="1520" alt="WhatsApp Image 2026-05-03 at 11 41 37 PM (1)" src="https://github.com/user-attachments/assets/4966cd2e-b56b-4d3b-9bc0-40ce3eac84f0" />
-<img width="720" height="1520" alt="WhatsApp Image 2026-05-03 at 11 41 40 PM" src="https://github.com/user-attachments/assets/c54f5d3b-f1e3-4162-a2a0-76bac37ad250" />
+<img width="720" height="740" alt="WhatsApp Image 2026-05-03 at 11 41 37 PM (1)" src="https://github.com/user-attachments/assets/4966cd2e-b56b-4d3b-9bc0-40ce3eac84f0" />
+**Summary**
 
 
 
