@@ -1,50 +1,141 @@
-# Welcome to your Expo app 👋
+#  Waste Sorting Assistant
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+An AI-powered mobile application that classifies waste materials from images and guides users on how to properly sort and dispose of them — making recycling smarter and sustainability easier.
 
-## Get started
 
-1. Install dependencies
 
-   ```bash
-   npm install
-   ```
+##  About the Project
 
-2. Start the app
+Improper waste disposal is a growing environmental problem. The **Waste Sorting Assistant** uses a custom-trained PyTorch model to instantly identify waste items from photos and tell users which bin they belong in — reducing confusion, improving recycling rates, and promoting eco-conscious habits.
 
-   ```bash
-   npx expo start
-   ```
+Simply upload or capture a photo of your waste item, and the assistant will classify it and provide disposal guidance in seconds.
 
-In the output, you'll find options to open the app in a
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+##  Features
 
-## Get a fresh project
+-  **Image-Based Waste Classification** — Upload or snap a photo of any waste item for instant AI-powered identification
+-  **Waste Category Detection** — Classifies items into categories such as:
+  - Recyclable (plastic, paper, metal, glass)
+  - Organic / Compostable
+  - Hazardous
+  - General / Landfill
+-  **Disposal Guidance** — Provides actionable instructions on how and where to dispose of the identified item
+-  **Fast Predictions** — PyTorch model served via FastAPI for real-time results
+-  **Mobile App** — Built with React Native and Expo for cross-platform iOS & Android support
 
-When you're ready, run:
 
-```bash
-npm run reset-project
-```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+##  Tech Stack
 
-## Learn more
+| Layer | Technology |
+|---|---|
+| Mobile Frontend | React Native + Expo |
+| Backend API | Python + FastAPI |
+| ML Framework | PyTorch |
+| Model Training | Custom dataset + PyTorch |
 
-To learn more about developing your project with Expo, look at the following resources:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Join the community
+##  Getting Started
 
-Join our community of developers creating universal apps.
+### Prerequisites
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Node.js (v18 or above)
+- Python (v3.8 or above)
+- npm or yarn
+- Expo CLI (`npm install -g expo-cli`)
+- Expo Go app on your phone (for testing)
+
+### Installation
+
+**1. Clone the repository**
+bash
+git clone https://github.com/Prasiddhi16/Waste-Sorting-Assistant.git
+cd Waste-Sorting-Assistant
+
+
+**2. Set up the Python / FastAPI backend**
+bash
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload
+
+The API will be available at `http://localhost:8000`
+
+**3. Set up the React Native / Expo frontend**
+bash
+cd frontend
+npm install
+npx expo start
+
+
+**4. Run on your device**
+- Scan the QR code with the **Expo Go** app (Android / iOS)
+- Or press `a` to open on an Android emulator, `i` for iOS simulator
+
+
+
+##  Usage
+
+1. **Launch the app** on your device via Expo Go or the installed APK
+2. **Take a photo** of the waste item you want to classify
+3. View the **predicted waste category** returned by the PyTorch model
+4. Follow the **disposal instructions** provided
+5. Dispose of your waste in the correct bin — you're helping the planet! 🌱
+
+
+
+##  Demo
+
+
+https://github.com/user-attachments/assets/a74cf92a-518a-4bbb-a213-85d9a947e379
+
+Video Demo
+
+<img width="650" height="740" alt="WhatsApp Image 2026-05-03 at 11 41 37 PM" src="https://github.com/user-attachments/assets/5d6bd702-323a-4cdc-8bde-716e01b1b9a3" />
+**Home Page**
+
+<img width="650" height="740" alt="WhatsApp Image 2026-05-03 at 11 41 38 PM" src="https://github.com/user-attachments/assets/a73c95d7-2842-40d8-aa27-e269f9017607" />
+**Results Page**
+
+<img width="650" height="740" alt="WhatsApp Image 2026-05-03 at 11 41 39 PM (1)" src="https://github.com/user-attachments/assets/fc6be8d1-87fa-4020-b3c9-de6060541603" />
+Scan Result
+
+<img width="650" height="740" alt="WhatsApp Image 2026-05-03 at 11 41 39 PM (2)" src="https://github.com/user-attachments/assets/e93854cf-01c4-4ed4-94ce-12d8599cb9f2" />
+**Recommendations**
+
+<img width="650" height="740" alt="WhatsApp Image 2026-05-03 at 11 41 39 PM" src="https://github.com/user-attachments/assets/68fc560c-f036-464a-9cfc-a86ec6a27314" />
+
+
+<img width="650" height="740" alt="WhatsApp Image 2026-05-03 at 11 41 37 PM (1)" src="https://github.com/user-attachments/assets/4966cd2e-b56b-4d3b-9bc0-40ce3eac84f0" />
+**Summary**
+
+
+
+
+
+
+##  Contributing
+
+Contributions are welcome! If you'd like to improve the model accuracy, add new waste categories, or enhance the UI:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'Add your feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
+5. Open a Pull Request
+
+
+
+##  License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+
+## Author
+
+**Prasiddhi Dumre** — [GitHub Profile](https://github.com/Prasiddhi16)
+
+
+> _"The greatest threat to our planet is the belief that someone else will save it."_ — Robert Swan
